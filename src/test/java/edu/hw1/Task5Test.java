@@ -79,7 +79,7 @@ public class Task5Test {
         boolean isPalindrome = Task5.isPalindromeDescendant(num);
 
         // then
-        assertThat(isPalindrome).isEqualTo(false);
+        assertThat(isPalindrome).isEqualTo(true);
     }
 
     @Test
@@ -87,6 +87,58 @@ public class Task5Test {
     void test7() {
         // given
         int num = 10101;
+
+        // when
+        boolean isPalindrome = Task5.isPalindromeDescendant(num);
+
+        // then
+        assertThat(isPalindrome).isEqualTo(true);
+    }
+
+    @Test
+    @DisplayName("-101") // Отрицательные числа не являются палиндромами из-за знака
+    void test8() {
+        // given
+        int num = -101;
+
+        // when
+        boolean isPalindrome = Task5.isPalindromeDescendant(num);
+
+        // then
+        assertThat(isPalindrome).isEqualTo(false);
+    }
+
+    @Test
+    @DisplayName("Integer.MAX_VALUE")
+    void test9() {
+        // given
+        int num = Integer.MAX_VALUE;
+
+        // when
+        boolean isPalindrome = Task5.isPalindromeDescendant(num);
+
+        // then
+        assertThat(isPalindrome).isEqualTo(false);
+    }
+
+    @Test
+    @DisplayName("0")
+    void test10() {
+        // given
+        int num = 0;
+
+        // when
+        boolean isPalindrome = Task5.isPalindromeDescendant(num);
+
+        // then
+        assertThat(isPalindrome).isEqualTo(true);
+    }
+
+    @Test
+    @DisplayName("Integer.MIN_VALUE")
+    void test11() {
+        // given
+        int num = Integer.MIN_VALUE;
 
         // when
         boolean isPalindrome = Task5.isPalindromeDescendant(num);

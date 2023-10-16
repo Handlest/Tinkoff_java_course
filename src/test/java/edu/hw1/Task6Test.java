@@ -1,7 +1,9 @@
 package edu.hw1;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class Task6Test {
     @Test
@@ -16,6 +18,7 @@ public class Task6Test {
         // then
         assertThat(Kaprekar).isEqualTo(3);
     }
+
     @Test
     @DisplayName("6621")
     void test2() {
@@ -53,5 +56,58 @@ public class Task6Test {
 
         // then
         assertThat(Kaprekar).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("0")
+    void test5() {
+        // when given
+        int num = 0;
+
+        // then
+        assertThrows(IllegalArgumentException.class, () -> Task6.countK(num));
+    }
+
+    @Test
+    @DisplayName("10000")
+    void test6() {
+        // when given
+        int num = 10000;
+
+        // then
+        assertThrows(IllegalArgumentException.class, () -> Task6.countK(num));
+    }
+
+    @Test
+    @DisplayName("6174")
+    void test7() {
+        // given
+        int num = 6174;
+
+        // when
+        int Kaprekar = Task6.countK(num);
+
+        // then
+        assertThat(Kaprekar).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("Integer.MIN_VALUE")
+    void test8() {
+        // when given
+        int num = Integer.MIN_VALUE;
+
+        // then
+        assertThrows(IllegalArgumentException.class, () -> Task6.countK(num));
+    }
+
+    @Test
+    @DisplayName("Integer.MAX_VALUE")
+    void test9() {
+        // when given
+        int num = Integer.MAX_VALUE;
+
+        // then
+        assertThrows(IllegalArgumentException.class, () -> Task6.countK(num));
     }
 }

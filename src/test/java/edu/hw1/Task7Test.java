@@ -73,4 +73,46 @@ public class Task7Test {
         // then
         assertThat(afterShift).isEqualTo(10);
     }
+
+    @Test
+    @DisplayName("Right 2, Integer.MAX_VALUE")
+    void test6() {
+        // given
+        int n = 2;
+        int shift = Integer.MAX_VALUE;
+
+        // when
+        int afterShift = Task7.rotateRight(n, shift);
+
+        // then
+        assertThat(afterShift).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("Right 8, -1")
+    void test7() {
+        // given
+        int n = 8;
+        int shift = -1;
+
+        // when
+        int afterShift = Task7.rotateRight(n, shift);
+
+        // then
+        assertThat(afterShift).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("Left 8, -1")
+    void test8() {
+        // given
+        int n = 8;
+        int shift = -1;
+
+        // when
+        int afterShift = Task7.rotateLeft(n, shift);
+
+        // then
+        assertThat(afterShift).isEqualTo(4);
+    }
 }

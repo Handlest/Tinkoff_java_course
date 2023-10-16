@@ -2,9 +2,6 @@ package edu.hw1;
 
 public class Task8 {
 
-    private Task8() {
-    }
-
     private static final int GRID_SIZE = 8;
     private static final int POSSIBLE_MOVES_AMOUNT = 8;
 
@@ -15,10 +12,13 @@ public class Task8 {
         {-1, -2}, {1, -2}
     };
 
+    private Task8() {
+    }
+
     public static boolean knightBoardCapture(int[][] board) {
         for (int x = 0; x < GRID_SIZE; x++) {
             for (int y = 0; y < GRID_SIZE; y++) {
-                if (board[x][y] == 1 && checkPosition(board, x, y)) {
+                if (board[x][y] == 1 && isAttacking(board, x, y)) {
                     return false;
                 }
             }
@@ -26,7 +26,7 @@ public class Task8 {
         return true;
     }
 
-    private static boolean checkPosition(int[][] board, int x, int y) {
+    private static boolean isAttacking(int[][] board, int x, int y) {
 
         for (int i = 0; i < POSSIBLE_MOVES_AMOUNT; i++) {
             int newX = x + POSSIBLE_MOVES[i][0];

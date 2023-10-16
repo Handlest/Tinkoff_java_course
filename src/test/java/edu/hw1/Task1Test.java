@@ -159,4 +159,17 @@ public class Task1Test {
         // then
         assertThat(seconds).isEqualTo(-1);
     }
+
+    @Test
+    @DisplayName("Заданное время: Integer.MAX_VALUE + :00")
+    void test13() {
+        // given
+        String duration = Integer.MAX_VALUE + ":00";
+
+        // when
+        int seconds = Task1.minutesToSeconds(duration);
+
+        // then
+        assertThat(seconds).isEqualTo(-1);
+    }
 }

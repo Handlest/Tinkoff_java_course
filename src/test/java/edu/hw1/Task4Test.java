@@ -43,4 +43,43 @@ public class Task4Test {
         // then
         assertThat(string).isEqualTo("abcde");
     }
+
+    @Test
+    @DisplayName("Empty string")
+    void test4() {
+        // given
+        String str = "";
+
+        // when
+        String string = Task4.fixString(str);
+
+        // then
+        assertThat(string).isEqualTo("");
+    }
+
+    @Test
+    @DisplayName("a")
+    void test5() {
+        // given
+        String str = "a";
+
+        // when
+        String string = Task4.fixString(str);
+
+        // then
+        assertThat(string).isEqualTo("a");
+    }
+
+    @Test
+    @DisplayName("ab")
+    void test6() {
+        // given
+        String str = "ab";
+
+        // when
+        String string = Task4.fixString(str);
+
+        // then
+        assertThat(string).isEqualTo("ba");
+    }
 }

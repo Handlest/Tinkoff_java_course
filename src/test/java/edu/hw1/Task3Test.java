@@ -10,11 +10,11 @@ public class Task3Test {
     @DisplayName("[1, 2, 3, 4], [0, 6]")
     void test1() {
         // given
-        int[] firstArr = { 1, 2, 3, 4 };
-        int[] secondArr = { 0, 6 };
+        int[] firstArray = { 1, 2, 3, 4 };
+        int[] secondArray = { 0, 6 };
 
         // when
-        boolean isNestable = Task3.isNestable(firstArr, secondArr);
+        boolean isNestable = Task3.isNestable(firstArray, secondArray);
 
         // then
         assertThat(isNestable).isEqualTo(true);
@@ -24,11 +24,11 @@ public class Task3Test {
     @DisplayName("[3, 1], [4, 0]")
     void test2()  {
         // given
-        int[] firstArr = { 3, 1 };
-        int[] secondArr = { 4, 0 };
+        int[] firstArray = { 3, 1 };
+        int[] secondArray = { 4, 0 };
 
         // when
-        boolean isNestable = Task3.isNestable(firstArr, secondArr);
+        boolean isNestable = Task3.isNestable(firstArray, secondArray);
 
         // then
         assertThat(isNestable).isEqualTo(true);
@@ -38,11 +38,11 @@ public class Task3Test {
     @DisplayName("[9, 9, 8], [8, 9]")
     void test3(){
         // given
-        int[] firstArr = { 9, 9, 8 };
-        int[] secondArr = { 8, 9 };
+        int[] firstArray = { 9, 9, 8 };
+        int[] secondArray = { 8, 9 };
 
         // when
-        boolean isNestable = Task3.isNestable(firstArr, secondArr);
+        boolean isNestable = Task3.isNestable(firstArray, secondArray);
 
         // then
         assertThat(isNestable).isEqualTo(false);
@@ -52,11 +52,11 @@ public class Task3Test {
     @DisplayName("[1, 2, 3, 4], [2, 3]")
     void test4() {
         // given
-        int[] firstArr = { 1, 2, 3, 4 };
-        int[] secondArr = { 2, 3 };
+        int[] firstArray = { 1, 2, 3, 4 };
+        int[] secondArray = { 2, 3 };
 
         // when
-        boolean isNestable = Task3.isNestable(firstArr, secondArr);
+        boolean isNestable = Task3.isNestable(firstArray, secondArray);
 
         // then
         assertThat(isNestable).isEqualTo(false);
@@ -66,9 +66,9 @@ public class Task3Test {
     @DisplayName("[], [2, 3]")
     void test5() {
         // given
-        int[] firstArr = { };
-        int[] secondArr = { 2, 3 };
-        boolean isNestable = Task3.isNestable(firstArr, secondArr);
+        int[] firstArray = { };
+        int[] secondArray = { 2, 3 };
+        boolean isNestable = Task3.isNestable(firstArray, secondArray);
 
         // then
         assertThat(isNestable).isEqualTo(true);
@@ -79,11 +79,11 @@ public class Task3Test {
     @DisplayName("[1, 2, 3, 4], []")
     void test6() {
         // given
-        int[] firstArr = { 1, 2, 3, 4 };
-        int[] secondArr = { };
+        int[] firstArray = { 1, 2, 3, 4 };
+        int[] secondArray = { };
 
         // when
-        boolean isNestable = Task3.isNestable(firstArr, secondArr);
+        boolean isNestable = Task3.isNestable(firstArray, secondArray);
 
         // then
         assertThat(isNestable).isEqualTo(true);
@@ -93,11 +93,11 @@ public class Task3Test {
     @DisplayName("[], []")
     void test7() {
         // given
-        int[] firstArr = { };
-        int[] secondArr = { };
+        int[] firstArray = { };
+        int[] secondArray = { };
 
         // when
-        boolean isNestable = Task3.isNestable(firstArr, secondArr);
+        boolean isNestable = Task3.isNestable(firstArray, secondArray);
 
         // then
         assertThat(isNestable).isEqualTo(true);

@@ -1,17 +1,20 @@
 package edu.hw1;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Task4 {
 
-    private Task4() { }
+    private Task4() {
+    }
 
-    public static String fixString(String string) {
-        char[] strArr = string.toCharArray();
-        for (int index = 0; index < strArr.length - 1; index += 2) {
-            char tmp = strArr[index];
-            strArr[index] = strArr[index + 1];
-            strArr[index + 1] = tmp;
+    public static String fixString(@NotNull String string) {
+        char[] stringCharArray = string.toCharArray();
+        for (int index = 0; index < stringCharArray.length - 1; index += 2) {
+            char temp = stringCharArray[index];
+            stringCharArray[index] = stringCharArray[index + 1];
+            stringCharArray[index + 1] = temp;
         }
-        return String.valueOf(strArr);
+        return String.valueOf(stringCharArray);
     }
 }
 

@@ -3,16 +3,20 @@ package edu.hw1;
 import java.util.Arrays;
 
 public class Task6 {
-
-    private static final int ERROR_CODE = -1;
     private static final int KAPREKAR_CONSTANT = 6174;
-
-    private static final int NUMBER_LENGTH = 4;
+    private static final int MINIMAL_NUMBER = 1000;
+    private static final int MAXIMAL_NUMBER = 9999;
 
     private Task6() {
     }
 
     public static int countK(int number) {
+        if (number < MINIMAL_NUMBER || number > MAXIMAL_NUMBER) {
+            throw new IllegalArgumentException();
+        }
+        if (number == KAPREKAR_CONSTANT) {
+            return 0;
+        }
         return findRecursiveK(number, 0);
     }
 
