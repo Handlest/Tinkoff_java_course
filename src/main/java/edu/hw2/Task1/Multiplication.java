@@ -1,8 +1,17 @@
 package edu.hw2.Task1;
 
-public final class Multiplication implements Expr {
+public record Multiplication(Expr firstExpression, Expr secondExpression) implements Expr {
+
+    public Multiplication(Expr expr, double number) {
+        this(expr, new Constant(number));
+    }
+
+    public Multiplication(double firstNumber, double secondNumber) {
+        this(new Constant(firstNumber), new Constant(secondNumber));
+    }
+
     @Override
     public double evaluate() {
-        return 0;
+        return firstExpression.evaluate() * secondExpression.evaluate();
     }
 }

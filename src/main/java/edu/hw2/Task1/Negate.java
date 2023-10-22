@@ -1,8 +1,8 @@
 package edu.hw2.Task1;
 
-public record Negate(Constant constant) implements Expr {
+public record Negate(Expr expression) implements Expr {
     @Override
     public double evaluate() {
-        return -constant.evaluate();
+        return -expression.evaluate();
     }
 }

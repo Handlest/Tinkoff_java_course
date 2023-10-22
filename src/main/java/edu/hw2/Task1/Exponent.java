@@ -1,9 +1,13 @@
 package edu.hw2.Task1;
 
-public final class Exponent implements Expr {
+public record Exponent(Expr expression, Expr power) implements Expr {
+
+    public Exponent(Expr expr, double degree) {
+        this(expr, new Constant(degree));
+    }
 
     @Override
     public double evaluate() {
-        return 0;
+        return Math.pow(expression.evaluate(), power.evaluate());
     }
 }
