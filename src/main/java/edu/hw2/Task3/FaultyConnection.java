@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 public class FaultyConnection implements Connection {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final int MAX_CONNECTION_ERRORS = 7;
+    private static final int MAX_CONNECTION_ERRORS = 8;
     private static final int SOME_CONNECTION_MESSAGE_AMOUNT = 10;
 
     private final Random random = new Random();
