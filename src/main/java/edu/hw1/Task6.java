@@ -1,5 +1,6 @@
 package edu.hw1;
 
+import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 
 public class Task6 {
@@ -12,42 +13,46 @@ public class Task6 {
 
     public static int countK(int number) {
         if (number < MINIMAL_NUMBER || number > MAXIMAL_NUMBER) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Введено не четырёхзначное число!");
         }
         if (number == KAPREKAR_CONSTANT) {
             return 0;
         }
-        return findRecursiveK(number, 0);
+        String StringNumber = Integer.toString(number);
+        return findRecursiveK(StringNumber, 0);
     }
 
-    private static int findRecursiveK(int number, int counter) {
-        int ascending = getAscending(number);
-        int descending = getDescending(number);
-        int result = descending - ascending;
+    private static int findRecursiveK(String stringNumber, int counter) {
+        String descendingNumberString = getDescending(stringNumber);
+        char[] ascendingNumberStringArray = descendingNumberString.toCharArray();
+        Arrays.sort(ascendingNumberStringArray);
+        String ascendingNumberString = new String(ascendingNumberStringArray);
+        int descendingNumber = Integer.parseInt(descendingNumberString);
+        int ascendingNumber = Integer.parseInt(ascendingNumberString);
+        int result = descendingNumber - ascendingNumber;
         int resultCounter = counter + 1;
         if (result == KAPREKAR_CONSTANT) {
             return resultCounter;
         }
-        return findRecursiveK(result, resultCounter);
-    }
-
-    private static int getAscending(int number) {
-        StringBuilder resultStr = new StringBuilder();
-        char[] numberArr = Integer.toString(number).toCharArray();
-        Arrays.sort(numberArr);
-        for (char elem : numberArr) {
-            resultStr.append(elem);
+        String stringResult = Integer.toString(result);
+        if (stringResult.length() < 4) {
+            stringResult = "0" + stringResult;
         }
-        return Integer.parseInt(String.valueOf(resultStr));
+        return findRecursiveK(stringResult, resultCounter);
     }
 
-    private static int getDescending(int number) {
+    /**
+     * Returns number(string) with sorted digits reversed
+     * @param number is String representing some 4-digit number
+     * @return String number with sorted in reverse order digits
+     */
+    private static @NotNull String getDescending(String number) {
         StringBuilder resultStr = new StringBuilder();
-        char[] numberArr = Integer.toString(number).toCharArray();
+        char[] numberArr = number.toCharArray();
         Arrays.sort(numberArr);
         for (int i = numberArr.length - 1; i >= 0; i--) {
             resultStr.append(numberArr[i]);
         }
-        return Integer.parseInt(String.valueOf(resultStr));
+        return String.valueOf(resultStr);
     }
 }

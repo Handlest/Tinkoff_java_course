@@ -110,4 +110,30 @@ public class Task6Test {
         // then
         assertThrows(IllegalArgumentException.class, () -> Task6.countK(num));
     }
+
+    @Test
+    @DisplayName("9998")
+    void test10() {
+        // given
+        int num = 9998;
+
+        // when
+        int Kaprekar = Task6.countK(num);
+
+        // then
+        assertThat(Kaprekar).isEqualTo(5);
+    }
+
+    @Test
+    @DisplayName("1001")
+    void test11() {
+        // given
+        int num = 1001;
+
+        // when
+        int Kaprekar = Task6.countK(num);
+
+        // then
+        assertThat(Kaprekar).isEqualTo(4);
+    }
 }
