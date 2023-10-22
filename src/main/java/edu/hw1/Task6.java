@@ -1,12 +1,15 @@
 package edu.hw1;
 
-import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
+import org.jetbrains.annotations.NotNull;
+
 
 public class Task6 {
     private static final int KAPREKAR_CONSTANT = 6174;
     private static final int MINIMAL_NUMBER = 1000;
     private static final int MAXIMAL_NUMBER = 9999;
+
+    private static final int DIGITS_AMOUNT_REQURED = 4;
 
     private Task6() {
     }
@@ -18,8 +21,8 @@ public class Task6 {
         if (number == KAPREKAR_CONSTANT) {
             return 0;
         }
-        String StringNumber = Integer.toString(number);
-        return findRecursiveK(StringNumber, 0);
+        String stringNumber = Integer.toString(number);
+        return findRecursiveK(stringNumber, 0);
     }
 
     private static int findRecursiveK(String stringNumber, int counter) {
@@ -35,7 +38,7 @@ public class Task6 {
             return resultCounter;
         }
         String stringResult = Integer.toString(result);
-        if (stringResult.length() < 4) {
+        if (stringResult.length() < DIGITS_AMOUNT_REQURED) {
             stringResult = "0" + stringResult;
         }
         return findRecursiveK(stringResult, resultCounter);
@@ -43,6 +46,7 @@ public class Task6 {
 
     /**
      * Returns number(string) with sorted digits reversed
+     *
      * @param number is String representing some 4-digit number
      * @return String number with sorted in reverse order digits
      */
