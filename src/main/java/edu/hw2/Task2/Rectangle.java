@@ -1,6 +1,6 @@
 package edu.hw2.Task2;
 
-public class Rectangle{
+public class Rectangle {
     private int width;
     private int height;
 
