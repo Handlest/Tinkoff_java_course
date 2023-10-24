@@ -21,7 +21,7 @@ public class Rectangle {
         return new Rectangle(this.width, height);
     }
 
-    Rectangle setSides(int side){
+    Rectangle setSides(int side) {
         return new Square(side);
     }
 

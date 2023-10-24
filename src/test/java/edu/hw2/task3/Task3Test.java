@@ -9,7 +9,6 @@ public class Task3Test {
 
     private static final int SEED = 12;
     private static final int SEED_FOR_TEST_4 = 1;
-
     private static final int SEED_FOR_TEST_5 = 2;
 
     @Test

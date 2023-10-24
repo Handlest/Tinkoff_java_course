@@ -10,7 +10,7 @@ public class FaultyConnection implements Connection {
     private static final int SOME_CONNECTION_MESSAGE_AMOUNT = 10;
     private final Random random;
 
-    FaultyConnection(Random random){
+    FaultyConnection(Random random) {
         this.random = random;
     }
 

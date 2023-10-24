@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class DefaultConnectionManager implements ConnectionManager {
 
-    private final static int CHANCE = 3; // 25% chance
+    private final static int CHANCE = 3; // 33% chance
 
     private final Random random;
 
