@@ -1,4 +1,4 @@
-package edu.hw2.Task2;
+package edu.hw2.task2;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,15 +11,18 @@ public class Task2Test {
     static Arguments[] rectangles() {
         return new Arguments[]{
             Arguments.of(new Rectangle(5, 20)),
-            Arguments.of(new Square(10))
+            Arguments.of(new Square(10)),
+            Arguments.of(new Square(0)),
+            Arguments.of(new Rectangle()),
+            Arguments.of(new Rectangle())
         };
     }
 
     @ParameterizedTest
     @MethodSource("rectangles")
     void rectangleArea(Rectangle rect) {
-        rect.setWidth(2);
-        rect.setHeight(50);
+        rect = rect.setWidth(2);
+        rect = rect.setHeight(50);
 
         assertThat(rect.area()).isEqualTo(100.0);
     }
@@ -42,7 +45,7 @@ public class Task2Test {
     @DisplayName("Изменение стороны квадрата")
     public void changeSquareSide() {
         Square square = new Square(5);
-        square.setSide(2);
+        square = square.setSides(2);
         assertThat(square.area()).isEqualTo(4.0);
     }
 

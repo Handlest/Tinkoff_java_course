@@ -1,4 +1,4 @@
-package edu.hw2.Task1;
+package edu.hw2.task1;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

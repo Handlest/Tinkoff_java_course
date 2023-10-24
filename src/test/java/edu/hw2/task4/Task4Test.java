@@ -1,4 +1,4 @@
-package edu.hw2.Task4;
+package edu.hw2.task4;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

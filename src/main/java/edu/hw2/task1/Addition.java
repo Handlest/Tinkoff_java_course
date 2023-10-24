@@ -1,4 +1,4 @@
-package edu.hw2.Task1;
+package edu.hw2.task1;
 
 public record Addition(Expr firstExpression, Expr secondExpression) implements Expr {
     public Addition(Expr expr, double number) {

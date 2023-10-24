@@ -1,4 +1,4 @@
-package edu.hw2.Task2;
+package edu.hw2.task2;
 
 public class Rectangle {
     private int width;
@@ -13,12 +13,16 @@ public class Rectangle {
 
     }
 
-    final void setWidth(int width) {
-        this.width = width;
+    Rectangle setWidth(int width) {
+        return new Rectangle(width, this.height);
     }
 
-    final void setHeight(int height) {
-        this.height = height;
+    Rectangle setHeight(int height) {
+        return new Rectangle(this.width, height);
+    }
+
+    Rectangle setSides(int side){
+        return new Square(side);
     }
 
     double area() {
