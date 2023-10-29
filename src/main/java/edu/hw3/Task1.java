@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Task1 {
-    private static Map<Character, Character> lookupTable;
+    private static final Map<Character, Character> lookupTable;
 
     private Task1() {
     }

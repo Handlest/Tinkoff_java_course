@@ -4,7 +4,7 @@ public class Stock {
     private double price;
     private final String stockName;
 
-    public Stock(float price, String stockName) {
+    public Stock(double price, String stockName) {
         this.price = price;
         this.stockName = stockName;
     }
@@ -13,7 +13,7 @@ public class Stock {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

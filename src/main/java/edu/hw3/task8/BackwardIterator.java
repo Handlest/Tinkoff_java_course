@@ -12,7 +12,7 @@ public class BackwardIterator<T> implements Iterator<T> {
 
     @SuppressWarnings("unchecked")
     public BackwardIterator(@NotNull Collection<T> collection) {
-        this.collectionElements = (T[]) collection.toArray();
+        this.collectionElements = (T[]) collection.toArray();  // Может быть null?
         this.currentIndex = collectionElements.length - 1;
     }
 

@@ -10,7 +10,7 @@ public class Task6Test {
     @DisplayName("Add and get mostValuableStock methods test")
     public void test1() {
 
-        Stock newStock = new Stock(4345435.44f, "Tinkoff");
+        Stock newStock = new Stock(4345435.44, "Tinkoff");
         StockMarket market = new StockMarketDefault();
 
         market.add(newStock);
@@ -22,11 +22,11 @@ public class Task6Test {
     @DisplayName("Add multiple and get mostValuableStock methods test")
     public void test2() {
 
-        Stock newStock1 = new Stock(44f, "Tinkoff");
-        Stock newStock2 = new Stock(45.444f, "Tinkoff");
-        Stock newStock3 = new Stock(4345.44f, "Tinkoff");
-        Stock newStock4 = new Stock(4344f, "Tinkoff");
-        Stock newStock5 = new Stock(43.44f, "Tinkoff");
+        Stock newStock1 = new Stock(44, "Tinkoff");
+        Stock newStock2 = new Stock(45.444, "Tinkoff");
+        Stock newStock3 = new Stock(4345.44, "Tinkoff");
+        Stock newStock4 = new Stock(4344, "Tinkoff");
+        Stock newStock5 = new Stock(43.44, "Tinkoff");
         StockMarket market = new StockMarketDefault();
 
         market.add(newStock1);
@@ -42,11 +42,11 @@ public class Task6Test {
     @DisplayName("Remove and add multiple and get mostValuableStock methods test")
     public void test3() {
 
-        Stock newStock1 = new Stock(44f, "Tinkoff");
-        Stock newStock2 = new Stock(45.444f, "Tinkoff");
-        Stock newStock3 = new Stock(4345.44f, "Tinkoff");
-        Stock newStock4 = new Stock(4344f, "Tinkoff");
-        Stock newStock5 = new Stock(43.44f, "Tinkoff");
+        Stock newStock1 = new Stock(44, "Tinkoff");
+        Stock newStock2 = new Stock(45.444, "Tinkoff");
+        Stock newStock3 = new Stock(4345.44, "Tinkoff");
+        Stock newStock4 = new Stock(4344, "Tinkoff");
+        Stock newStock5 = new Stock(43.44, "Tinkoff");
         StockMarket market = new StockMarketDefault();
 
         market.add(newStock1);
