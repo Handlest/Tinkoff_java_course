@@ -1,8 +1,8 @@
 package edu.hw3.task5;
 
 public class Contact {
-    private String name = "";
-    private String lastname = "";
+    private final String name;
+    private final String lastname;
 
     Contact(String name, String lastname) {
         this.lastname = lastname;
@@ -10,7 +10,7 @@ public class Contact {
     }
 
     Contact(String name) {
-        this.name = name;
+        this(name, "");
     }
 
     public String getLastnameOrName() {

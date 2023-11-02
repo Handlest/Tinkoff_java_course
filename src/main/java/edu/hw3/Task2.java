@@ -18,7 +18,9 @@ public class Task2 {
             } else if (input.charAt(i) == ')') {
                 count--;
             }
-
+            if (count < 0){
+                return clusters;
+            }
             if (count == 0) {
                 clusters.add(input.substring(start, i + 1));
                 start = i + 1;

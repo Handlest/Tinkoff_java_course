@@ -11,8 +11,8 @@ public class Task5 {
     private Task5() {
     }
 
-    public static List<Contact> parseContacts(@Nullable ArrayList<String> contacts, String order) {
-        ArrayList<Contact> contactArrayList = new ArrayList<>();
+    public static List<Contact> parseContacts(@Nullable List<String> contacts, String order) {
+        List<Contact> contactArrayList = new ArrayList<>();
         if (contacts == null) {
             return Collections.emptyList();
         }

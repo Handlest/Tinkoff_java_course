@@ -73,4 +73,36 @@ public class Task2Test {
 
         Assertions.assertThat(result).containsExactly();
     }
+
+    @Test
+    @DisplayName("Wrong sequence")
+    public void test7() {
+
+        String inputString = ")(";
+
+        List<String> result = Task2.clusterize(inputString);
+
+        Assertions.assertThat(result).containsExactly();
+    }
+
+    @Test
+    @DisplayName("Wrong sequence")
+    public void test8() {
+
+        String inputString = "))((";
+
+        List<String> result = Task2.clusterize(inputString);
+
+        Assertions.assertThat(result).containsExactly();
+    }
+    @Test
+    @DisplayName("Wrong sequence")
+    public void test9() {
+
+        String inputString = ")(())";
+
+        List<String> result = Task2.clusterize(inputString);
+
+        Assertions.assertThat(result).containsExactly();
+    }
 }
