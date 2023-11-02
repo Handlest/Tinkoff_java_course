@@ -139,12 +139,7 @@ public class UtilityClass {
 
     public static Map<String, Set<ValidationError>> t19GetErrors(List<Animal> animals) {
         return animals.stream()
-            .flatMap(animal -> Validators.validateAnimal(animal)
-                .entrySet().stream())
-            .collect(Collectors.groupingBy(
-                Map.Entry::getKey,
-                Collectors.mapping(Map.Entry::getValue, Collectors.toSet())
-            ));
+            .collect(Collectors.toMap(Animal::name, Validators::validateAnimal));
     }
 
     public static Map<String, String> t20GetErrorsPretty(List<Animal> animals) {

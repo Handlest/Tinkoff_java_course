@@ -1,7 +1,9 @@
 package edu.hw4;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Validators {
 
@@ -25,17 +27,17 @@ public class Validators {
         return animal.weight() < WEIGHT_LIMIT && animal.weight() > 0;
     }
 
-    public static Map<String, ValidationError> validateAnimal(Animal animal) {
-        Map<String, ValidationError> errorMap = new HashMap<>();
+    public static Set<ValidationError> validateAnimal(Animal animal) {
+        Set<ValidationError> errorSet = new HashSet<>();
         if (!validateHeight(animal)) {
-            errorMap.put(animal.name(), new ValidationError("Height error"));
+            errorSet.add(new ValidationError("Height error"));
         }
         if (!validateWeight(animal)) {
-            errorMap.put(animal.name(), new ValidationError("Weight error"));
+            errorSet.add(new ValidationError("Weight error"));
         }
         if (!validateAge(animal)) {
-            errorMap.put(animal.name(), new ValidationError("Age error"));
+            errorSet.add(new ValidationError("Age error"));
         }
-        return errorMap;
+        return errorSet;
     }
 }

@@ -11,36 +11,27 @@ public class UtilityClassTest {
 
     @Test
     void t1SortByHeight() {
-        List<Animal> animals = List.of(
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false)
-        );
+        Animal cat = new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false);
+        Animal dog = new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true);
+        Animal bird = new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false);
+        List<Animal> animals = List.of(cat, dog, bird);
 
         List<Animal> sortedAnimals = UtilityClass.t1SortByHeight(animals);
 
-        assertThat(sortedAnimals).containsExactly(
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false),
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true)
-        );
+        assertThat(sortedAnimals).containsExactly(bird, cat, dog);
     }
 
     @Test
     void t2SortByWeightReverse() {
-        List<Animal> animals = List.of(
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false)
-        );
+        Animal cat = new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false);
+        Animal dog = new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true);
+        Animal bird = new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false);
+        List<Animal> animals = List.of(cat, dog, bird);
         int k = 2;
 
         List<Animal> sortedAnimals = UtilityClass.t2SortByWeight(animals, k);
 
-        assertThat(sortedAnimals).containsExactly(
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true),
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false)
-        );
+        assertThat(sortedAnimals).containsExactly(dog, cat);
     }
 
     @Test
@@ -62,15 +53,14 @@ public class UtilityClassTest {
 
     @Test
     void t4GetLongestName() {
-        List<Animal> animals = List.of(
-            new Animal("Cattt", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false)
-        );
+        Animal cat = new Animal("KittyCat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false);
+        Animal dog = new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true);
+        Animal bird = new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false);
+        List<Animal> animals = List.of(cat, dog, bird);
 
         Animal longestNameAnimal = UtilityClass.t4GetLongestName(animals);
 
-        assertThat(longestNameAnimal).isEqualTo(new Animal("Cattt", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false));
+        assertThat(longestNameAnimal).isEqualTo(cat);
     }
 
     @Test
@@ -89,49 +79,49 @@ public class UtilityClassTest {
 
     @Test
     void t6GetHeaviestOfEachType() {
-        List<Animal> animals = List.of(
-            new Animal("Cat1", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false),
-            new Animal("Cat2", Animal.Type.CAT, Animal.Sex.F, 3, 40, 6, true),
-            new Animal("Dog1", Animal.Type.DOG, Animal.Sex.M, 1, 20, 2, false),
-            new Animal("Dog2", Animal.Type.DOG, Animal.Sex.F, 4, 35, 5, true),
-            new Animal("Bird1", Animal.Type.BIRD, Animal.Sex.M, 5, 25, 3, false),
-            new Animal("Bird2", Animal.Type.BIRD, Animal.Sex.F, 2, 15, 1, true)
-        );
+        Animal cat1 = new Animal("Cat1", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false);
+        Animal cat2 = new Animal("Cat2", Animal.Type.CAT, Animal.Sex.F, 3, 40, 6, true);
+        Animal dog1 = new Animal("Dog1", Animal.Type.DOG, Animal.Sex.M, 1, 20, 2, false);
+        Animal dog2 = new Animal("Dog2", Animal.Type.DOG, Animal.Sex.F, 4, 35, 5, true);
+        Animal bird = new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 5, 25, 3, false);
+
+        List<Animal> animals = List.of(cat1, cat2, dog1, dog2, bird);
 
         Map<Animal.Type, Animal> heaviestOfEachType = UtilityClass.t6GetHeaviestOfEachType(animals);
 
         assertThat(heaviestOfEachType)
-            .containsEntry(Animal.Type.CAT, new Animal("Cat2", Animal.Type.CAT, Animal.Sex.F, 3, 40, 6, true))
-            .containsEntry(Animal.Type.DOG, new Animal("Dog2", Animal.Type.DOG, Animal.Sex.F, 4, 35, 5, true))
-            .containsEntry(Animal.Type.BIRD, new Animal("Bird1", Animal.Type.BIRD, Animal.Sex.M, 5, 25, 3, false));
+            .containsEntry(Animal.Type.CAT, cat2)
+            .containsEntry(Animal.Type.DOG, dog2)
+            .containsEntry(Animal.Type.BIRD, bird);
     }
 
     @Test
     void t7GetOldestKth() {
-        List<Animal> animals = List.of(
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false)
-        );
+        Animal cat = new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false);
+        Animal dog = new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true);
+        Animal bird = new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false);
+        List<Animal> animals = List.of(cat, dog, bird);
         int k = 2;
 
         Animal oldestKthAnimal = UtilityClass.t7GetOldestKth(animals, k);
 
-        assertThat(oldestKthAnimal).isEqualTo(new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false));
+        assertThat(oldestKthAnimal).isEqualTo(cat);
     }
 
     @Test
     void t8GetHeaviestAmongLowerK() {
-        List<Animal> animals = List.of(
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false),
-            new Animal("Cat2", Animal.Type.CAT, Animal.Sex.F, 5, 45, 3, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false)
-        );
+        Animal cat1 = new Animal("Cat1", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false);
+        Animal cat2 = new Animal("Cat2", Animal.Type.CAT, Animal.Sex.F, 3, 40, 6, true);
+        Animal dog1 = new Animal("Dog1", Animal.Type.DOG, Animal.Sex.M, 1, 20, 2, false);
+        Animal dog2 = new Animal("Dog2", Animal.Type.DOG, Animal.Sex.F, 4, 35, 5, true);
+        Animal bird = new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 5, 25, 3, false);
+
+        List<Animal> animals = List.of(cat1, cat2, dog1, dog2, bird);
         int k = 35;
+
         Optional<Animal> heaviestAnimal = UtilityClass.t8GetHeaviestAmongLowerK(animals, k);
 
-        assertThat(heaviestAnimal).contains(new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false));
+        assertThat(heaviestAnimal).contains(cat1);
     }
 
     @Test
@@ -139,47 +129,42 @@ public class UtilityClassTest {
         List<Animal> animals = List.of(
             new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false),
             new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false)
+            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false),
+            new Animal("Spider", Animal.Type.SPIDER, Animal.Sex.M, 1, 1, 1, true)
         );
 
         int totalPaws = UtilityClass.t9CountPaws(animals);
 
-        assertThat(totalPaws).isEqualTo(10);
+        assertThat(totalPaws).isEqualTo(18);
     }
 
     @Test
     void t10GetAnimalsNotMatchLegsAndAge() {
-        List<Animal> animals = List.of(
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false),
-            new Animal("Cat2", Animal.Type.CAT, Animal.Sex.M, 4, 50, 4, true)
-        );
+        Animal cat = new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false);
+        Animal cat2 = new Animal("Cat2", Animal.Type.CAT, Animal.Sex.M, 4, 50, 4, true);
+        Animal dog = new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true);
+        Animal bird = new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false);
+
+
+        List<Animal> animals = List.of(cat, cat2, dog, bird);
 
         List<Animal> mismatchedAnimals = UtilityClass.t10GetAnimalsNotMatchLegsAndAge(animals);
 
-        assertThat(mismatchedAnimals).contains(
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 2, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 6, true)
-        );
+        assertThat(mismatchedAnimals).containsExactlyInAnyOrder(cat, bird, dog);
     }
 
     @Test
     void t11GetAnimalsBitesAndHeightMore100() {
-        List<Animal> animals = List.of(
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 120, 30, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 110, 40, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 90, 20, false),
-            new Animal("Lion", Animal.Type.CAT, Animal.Sex.M, 4, 130, 50, true)
-        );
+        Animal cat = new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 4, false);
+        Animal lion = new Animal("Lion", Animal.Type.CAT, Animal.Sex.M, 4, 150, 4, true);
+        Animal dog = new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 140, 6, true);
+        Animal bird = new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 120, 2, false);
+
+        List<Animal> animals = List.of(cat, lion, dog, bird);
 
         List<Animal> dangerousAnimals = UtilityClass.t11GetAnimalsBitesAndHeightMore100(animals);
 
-        assertThat(dangerousAnimals).containsExactly(
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 110, 40, true),
-            new Animal("Lion", Animal.Type.CAT, Animal.Sex.M, 4, 130, 50, true)
-        );
+        assertThat(dangerousAnimals).containsExactlyInAnyOrder(lion, dog);
     }
 
     @Test
@@ -217,11 +202,14 @@ public class UtilityClassTest {
             new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 30, true),
             new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 15, false)
         );
-        int k = 20;
+        int k1 = 20;
+        int k2 = 50;
 
-        boolean hasDogWithHeightMoreK = UtilityClass.t14HasDogWithHeightMoreK(animals, k);
+        boolean hasDogWithHeightMoreK1 = UtilityClass.t14HasDogWithHeightMoreK(animals, k1);
+        boolean hasDogWithHeightMoreK2 = UtilityClass.t14HasDogWithHeightMoreK(animals, k2);
 
-        assertThat(hasDogWithHeightMoreK).isTrue();
+        assertThat(hasDogWithHeightMoreK1).isTrue();
+        assertThat(hasDogWithHeightMoreK2).isFalse();
     }
 
     @Test
@@ -244,36 +232,44 @@ public class UtilityClassTest {
 
     @Test
     void t16SortByTypeSexAndName() {
-        List<Animal> animals = List.of(
-            new Animal("Cat2", Animal.Type.CAT, Animal.Sex.M, 2, 30, 40, false),
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.F, 2, 30, 40, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 30, true),
-            new Animal("Spider", Animal.Type.SPIDER, Animal.Sex.M, 1, 20, 15, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.F, 4, 35, 25, false)
-        );
+        Animal cat = new Animal("Cat", Animal.Type.CAT, Animal.Sex.F, 2, 30, 40, false);
+        Animal cat2 = new Animal("Cat2", Animal.Type.CAT, Animal.Sex.M, 2, 30, 40, false);
+        Animal cat3 = new Animal("Cat3", Animal.Type.CAT, Animal.Sex.M, 2, 30, 40, false);
+        Animal dog = new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 30, true);
+        Animal spider = new Animal("Spider", Animal.Type.SPIDER, Animal.Sex.M, 1, 20, 15, true);
+        Animal bird = new Animal("Bird", Animal.Type.BIRD, Animal.Sex.F, 4, 35, 25, false);
+        List<Animal> animals = List.of(cat, cat2, cat3, dog, spider, bird);
 
         List<Animal> sortedAnimals = UtilityClass.t16SortByTypeSexAndName(animals);
 
-        assertThat(sortedAnimals).containsExactly(
-            new Animal("Cat2", Animal.Type.CAT, Animal.Sex.M, 2, 30, 40, false),
-            new Animal("Cat", Animal.Type.CAT, Animal.Sex.F, 2, 30, 40, false),
-            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 30, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.F, 4, 35, 25, false),
-            new Animal("Spider", Animal.Type.SPIDER, Animal.Sex.M, 1, 20, 15, true)
-        );
+        assertThat(sortedAnimals).containsExactly(cat2, cat3, cat, dog, bird, spider);
     }
 
     @Test
     void t17DoesSpidersBitesMoreDogs() {
-        List<Animal> animals = List.of(
+        List<Animal> animals1 = List.of(
             new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 40, false),
             new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 30, true),
             new Animal("Spider", Animal.Type.SPIDER, Animal.Sex.M, 1, 20, 15, true)
         );
 
-        boolean spidersBiteMoreDogs = UtilityClass.t17DoesSpidersBitesMoreDogs(animals);
+        List<Animal> animals2 = List.of(
+            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 40, false),
+            new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 30, false),
+            new Animal("Spider", Animal.Type.SPIDER, Animal.Sex.M, 1, 20, 15, true)
+        );
+        List<Animal> animals3 = List.of(
+            new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 40, false),
+            new Animal("Spider", Animal.Type.SPIDER, Animal.Sex.F, 1, 3, 2, true)
+        );
 
-        assertThat(spidersBiteMoreDogs).isFalse();
+        boolean spidersBiteMoreDogs1 = UtilityClass.t17DoesSpidersBitesMoreDogs(animals1);
+        boolean spidersBiteMoreDogs2 = UtilityClass.t17DoesSpidersBitesMoreDogs(animals2);
+        boolean spidersBiteMoreDogs3 = UtilityClass.t17DoesSpidersBitesMoreDogs(animals3);
+
+        assertThat(spidersBiteMoreDogs1).isFalse();
+        assertThat(spidersBiteMoreDogs2).isTrue();
+        assertThat(spidersBiteMoreDogs3).isFalse(); // Недостаточно данных, нет информации о собаках
     }
 
     @Test
@@ -301,9 +297,13 @@ public class UtilityClassTest {
             new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 15, false)
         );
 
-        Map<String, Set<ValidationError>> errors = UtilityClass.t19GetErrors(animals);
 
-        assertThat(errors).isEmpty();
+        Map<String, Set<ValidationError>> errors = UtilityClass.t19GetErrors(animals);
+        assertThat(errors)
+            .containsEntry("Cat", Set.of())
+            .containsEntry("Dog", Set.of())
+            .containsEntry("Bird", Set.of());
+
     }
 
     @Test
@@ -311,12 +311,19 @@ public class UtilityClassTest {
         List<Animal> animals = List.of(
             new Animal("Cat", Animal.Type.CAT, Animal.Sex.M, 2, 30, 40, false),
             new Animal("Dog", Animal.Type.DOG, Animal.Sex.F, 3, 40, 30, true),
-            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 15, false)
+            new Animal("Bird", Animal.Type.BIRD, Animal.Sex.M, 1, 20, 15, false),
+            new Animal("Bird2", Animal.Type.BIRD, Animal.Sex.M, 1000, 20, 15, false),
+            new Animal("Bird3", Animal.Type.BIRD, Animal.Sex.M, 1000, 20, 1500000000, false)
         );
 
         Map<String, String> errorsPretty = UtilityClass.t20GetErrorsPretty(animals);
 
-        assertThat(errorsPretty).isEmpty();
+        assertThat(errorsPretty)
+            .containsEntry("Cat", "[]")
+            .containsEntry("Dog", "[]")
+            .containsEntry("Bird", "[]")
+            .containsEntry("Bird2", "[Age error]")
+            .containsEntry("Bird3", "[Weight error, Age error]");
     }
 }
 
