@@ -2,7 +2,7 @@ package edu.project2;
 
 import java.util.Random;
 
-public class SimpleGenerator implements Generator{
+public class SimpleGenerator implements Generator {
     Random random;
     private int width;
     private int height;
@@ -15,7 +15,7 @@ public class SimpleGenerator implements Generator{
         this.random = new Random(seed);
     }
 
-    public int[][] generate(){
+    public int[][] generate() {
         generateMaze();
         return this.maze;
     }
@@ -35,6 +35,7 @@ public class SimpleGenerator implements Generator{
         createPath(2 * startX + 1, 2 * startY + 1);
     }
 
+    @SuppressWarnings("MagicNumber")
     private void createPath(int x, int y) {
         int[] dx = {0, 0, 2, -2};
         int[] dy = {2, -2, 0, 0};

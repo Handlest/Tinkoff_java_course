@@ -1,7 +1,17 @@
 package edu.project2;
 
 public class RecusiveSolver {
+
+    private RecusiveSolver() {
+
+    }
+
     public static int[][] findPath(int[][] maze, int startX, int startY, int endX, int endY) {
+
+        if (!Utility.validateCoordinates(maze, startX, startY, endX, endY)) {
+            return null;
+        }
+
         int[][] solution = new int[maze.length][maze[0].length];
         for (int i = 0; i < solution.length; i++) {
             System.arraycopy(maze[i], 0, solution[i], 0, solution[0].length);
@@ -24,10 +34,10 @@ public class RecusiveSolver {
             return true;
         }
         solution[row][col] = 1;
-        if (findPathPrivate(solution, row - 1, col, endX, endY) ||
-            findPathPrivate(solution, row + 1, col, endX, endY) ||
-            findPathPrivate(solution, row, col - 1, endX, endY) ||
-            findPathPrivate(solution, row, col + 1, endX, endY)) {
+        if (findPathPrivate(solution, row - 1, col, endX, endY)
+            || findPathPrivate(solution, row + 1, col, endX, endY)
+            || findPathPrivate(solution, row, col - 1, endX, endY)
+            || findPathPrivate(solution, row, col + 1, endX, endY)) {
             solution[row][col] = 2;
             return true;
         } else {

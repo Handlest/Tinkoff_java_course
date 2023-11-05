@@ -1,6 +1,12 @@
 package edu.project2;
 
-public class SimplePrettyRenderer implements Renderer{
+public class SimplePrettyRenderer implements Renderer {
+
+    private SimplePrettyRenderer() {
+
+    }
+
+    @SuppressWarnings("RegexpSinglelineJava")
     public static void printMaze(int[][] maze) {
         int height = maze[0].length;
         for (int[] ints : maze) {

@@ -4,16 +4,19 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BFSSolver {
+    private static final int DIRECTIONS = 4;
+
+    private BFSSolver() {
+
+    }
+
     public static int[][] findPath(int[][] maze, int[] start, int[] end) {
-        if (maze[start[0]][start[1]] == 1 || maze[end[0]][end[1]] == 1){
+        if (!Utility.validateCoordinates(maze, start[0], start[1], end[0], end[1])) {
             return null;
         }
+
         int rows = maze.length;
         int cols = maze[0].length;
-
-        if (start[1] >= cols || end[1] >= cols) {
-            return null;
-        }
 
         boolean[][] visited = new boolean[rows][cols];
 
@@ -32,12 +35,12 @@ public class BFSSolver {
                 break;
             }
 
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < DIRECTIONS; i++) {
                 int newX = x + dx[i];
                 int newY = y + dy[i];
 
-                if (newX >= 0 && newX < rows && newY >= 0 && newY < cols &&
-                    maze[newX][newY] == 0 && !visited[newX][newY]) {
+                if (newX >= 0 && newX < rows && newY >= 0 && newY < cols
+                    && maze[newX][newY] == 0 && !visited[newX][newY]) {
                     queue.add(new int[] {newX, newY});
                     visited[newX][newY] = true;
                 }
