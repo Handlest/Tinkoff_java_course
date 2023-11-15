@@ -133,7 +133,7 @@ public class Utils {
             .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
     }
 
-    public static Map<String, Integer> getMostRemoteAddresses(List<Log> logs) {
+    public static Map<String, Integer> getMostCommonRemoteAddresses(List<Log> logs) {
         return logs.stream()
             .collect(Collectors.groupingBy(Log::remoteAddress, Collectors.summingInt(t -> 1)))
             .entrySet()
@@ -143,8 +143,8 @@ public class Utils {
             .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
     }
 
-    public static int getAverageBytesResponse(List<Log> logs) {
-        return logs.stream().mapToInt(Log::bytesSent).sum() / logs.size();
+    public static double getAverageBytesResponse(List<Log> logs) {
+        return logs.stream().mapToDouble(Log::bytesSent).sum() / logs.size();
     }
 
     public static List<Path> getFilesPathsToRead(String filesPath) {
@@ -220,7 +220,7 @@ public class Utils {
             Files.writeString(path, "# Самые частые удалённые адреса\n", StandardOpenOption.APPEND);
             Files.writeString(path, "| Адрес | Количество запросов |\n", StandardOpenOption.APPEND);
             Files.writeString(path, "|:-------------:|:-------------:|\n", StandardOpenOption.APPEND);
-            var remoteAddressesMap = getMostRemoteAddresses(logs);
+            var remoteAddressesMap = getMostCommonRemoteAddresses(logs);
             for (var elem : remoteAddressesMap.keySet()) {
                 Files.writeString(
                     path,
@@ -315,7 +315,7 @@ public class Utils {
             Files.writeString(path, "[cols=\"1,1\"]\n", StandardOpenOption.APPEND);
             Files.writeString(path, "|===\n", StandardOpenOption.APPEND);
             Files.writeString(path, "| Адрес | Количество запросов\n", StandardOpenOption.APPEND);
-            var remoteAddressesMap = getMostRemoteAddresses(logs);
+            var remoteAddressesMap = getMostCommonRemoteAddresses(logs);
             for (var elem : remoteAddressesMap.keySet()) {
                 Files.writeString(
                     path,

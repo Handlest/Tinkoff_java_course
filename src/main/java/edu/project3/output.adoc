@@ -28,9 +28,9 @@
 [cols="1,1"]
 |===
 | Имя | Количество
-|Debian APT-HTTP/1.3 (1.0.1ubuntu2)"|6549
-|Debian APT-HTTP/1.3 (0.9.7.9)"|6230
-|Debian APT-HTTP/1.3 (0.8.16~exp12ubuntu10.21)"|3980
+|Debian APT-HTTP/1.3 (1.0.1ubuntu2)|6549
+|Debian APT-HTTP/1.3 (0.9.7.9)|6230
+|Debian APT-HTTP/1.3 (0.8.16~exp12ubuntu10.21)|3980
 |===
 .Самые частые удалённые адреса
 [cols="1,1"]

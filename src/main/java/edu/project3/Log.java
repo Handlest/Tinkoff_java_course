@@ -8,10 +8,10 @@ import java.util.regex.Pattern;
 
 public record Log(String remoteAddress, String remoteUser, LocalDate time, String requestType, String address,
                   String codeStatus, int bytesSent, String httpReferer, String httpUserAgent) {
-    @SuppressWarnings("MagicNumber")
+    @SuppressWarnings({"MagicNumber", "LineLength"})
     public static Log createLog(String rawLogString) {
         Matcher matcher = Pattern.compile(
-                "^(\\S*) - (\\S*) \\[(\\d{1,2}/\\D{3}/\\d{1,4}).*\"(\\S*) (\\S*) .*\" (\\d{3}) (\\d+) \"(.*)\" \"(.*)$")
+                "^(\\S*) - (\\S*) \\[(\\d{1,2}/\\D{3}/\\d{1,4}).*\"(\\S*) (\\S*) .*\" (\\d{3}) (\\d+) \"(.*)\" \"(.*)\"$")
             .matcher(rawLogString);
         if (matcher.find()) {
             return new Log(matcher.group(1), matcher.group(2),
