@@ -1,20 +1,27 @@
 package edu.hw6;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class HackerNews {
     private static final String TOP_STORIES_URL = "https://hacker-news.firebaseio.com/v0/topstories.json";
     private static final String ITEM_URL_TEMPLATE = "https://hacker-news.firebaseio.com/v0/item/%d.json";
     private final static Logger LOGGER = LogManager.getLogger();
+
+//    public static void main(String[] args) {
+//        HackerNews hackerNews = new HackerNews();
+//        long[] topStories = hackerNews.hackerNewsTopStories();
+//        System.out.println(Arrays.toString(topStories));
+//        String newsTitle = hackerNews.getNewsById(37570037);
+//        System.out.println(newsTitle);
+//    }
 
     public long[] hackerNewsTopStories() {
         HttpClient client = HttpClient.newHttpClient();
@@ -58,13 +65,5 @@ public class HackerNews {
             LOGGER.info(e.getMessage());
             return "";
         }
-    }
-
-    public static void main(String[] args) {
-        HackerNews hackerNews = new HackerNews();
-        long[] topStories = hackerNews.hackerNewsTopStories();
-        System.out.println(Arrays.toString(topStories));
-        String newsTitle = hackerNews.getNewsById(37570037);
-        System.out.println(newsTitle);
     }
 }

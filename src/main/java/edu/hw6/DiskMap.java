@@ -1,18 +1,22 @@
 package edu.hw6;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
-
-import java.io.*;
-import java.util.*;
 
 public class DiskMap implements Map<String, String> {
-    private final File file;
     private final static Logger LOGGER = LogManager.getLogger();
+    private final File file;
 
     public DiskMap(String filePath) {
         this.file = new File(filePath);

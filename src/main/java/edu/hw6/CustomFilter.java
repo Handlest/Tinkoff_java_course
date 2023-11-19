@@ -9,12 +9,6 @@ import java.util.Arrays;
 import java.util.Set;
 
 public interface CustomFilter extends DirectoryStream.Filter<Path> {
-    boolean accept(Path entry) throws IOException;
-
-    default CustomFilter and(CustomFilter other) {
-        return entry -> this.accept(entry) && other.accept(entry);
-    }
-
     static CustomFilter regularFile() {
         return Files::isRegularFile;
     }
@@ -23,7 +17,12 @@ public interface CustomFilter extends DirectoryStream.Filter<Path> {
         return Files::isReadable;
     }
 
-    static CustomFilter byAttributes(Set<PosixFilePermission> permissions, boolean isReadable, boolean isWritable, boolean isExecutable) {
+    static CustomFilter byAttributes(
+        Set<PosixFilePermission> permissions,
+        boolean isReadable,
+        boolean isWritable,
+        boolean isExecutable
+    ) {
         return entry -> {
             Set<PosixFilePermission> filePermissions = Files.getPosixFilePermissions(entry);
             boolean hasPermissions = filePermissions.containsAll(permissions);
@@ -61,5 +60,11 @@ public interface CustomFilter extends DirectoryStream.Filter<Path> {
             byte[] fileBytes = Files.readAllBytes(entry);
             return Arrays.equals(Arrays.copyOfRange(fileBytes, 0, magicBytes.length), magicBytes);
         };
+    }
+
+    boolean accept(Path entry) throws IOException;
+
+    default CustomFilter and(CustomFilter other) {
+        return entry -> this.accept(entry) && other.accept(entry);
     }
 }

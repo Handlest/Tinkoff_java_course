@@ -5,10 +5,16 @@ import java.net.DatagramSocket;
 import java.net.ServerSocket;
 
 public class Task6 {
+    private static final int LAST_PORT = 49152;
 
+    private Task6() {
+
+    }
+
+    @SuppressWarnings({"RegexpSinglelineJava", "MultipleStringLiterals"})
     public static void scanPorts() {
         System.out.println("Протокол\t\t" + "Порт\t" + "Сервис");
-        for (int port = 0; port < 49152; port++) {
+        for (int port = 0; port < LAST_PORT; port++) {
             if (checkServerPort(port) && !getServiceName(port).isEmpty()) {
                 System.out.println("TCP\t\t\t\t" + port + "\t\t" + getServiceName(port));
             }
@@ -34,6 +40,7 @@ public class Task6 {
         }
     }
 
+    @SuppressWarnings("MagicNumber")
     private static String getServiceName(int port) {
         return switch (port) {
             case 135 -> "EPMAP";
