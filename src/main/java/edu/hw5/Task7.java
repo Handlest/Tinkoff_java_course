@@ -10,7 +10,7 @@ public class Task7 {
     }
 
     public static boolean validateAlphabetThird0(String string) {
-        String regex = "^[01]{2}0([01]+)?$";
+        String regex = "^[01]{2}0[01]*$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(string);
         return matcher.matches();

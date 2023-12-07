@@ -10,14 +10,14 @@ public class Task8 {
     }
 
     public static boolean validateHasUnevenLength(String string) {
-        String regex = "^([01])(([01]{2})+)?$";
+        String regex = "^([01])([01]{2})*$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(string);
         return matcher.matches();
     }
 
     public static boolean validateStarts0UnevenOrStarts1Even(String string) {
-        String regex = "^(0(([01]{2})+)?)$|^(1[01](([01]{2})+)?)$";
+        String regex = "^(0([01]{2})*)$|^(1[01]([01]{2})*)$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(string);
         return matcher.matches() && validateAlphabet(string);

@@ -10,8 +10,8 @@ public class Task6Test {
     @Test
     @DisplayName("Right substring")
     void Test1() {
-        String S = "this is main string to find substring in";
-        String T = "string";
+        String T = "this is main string to find substring in";
+        String S = "string";
 
         boolean isSubstring = isSubstring(S, T);
         assertThat(isSubstring).isTrue();
@@ -21,10 +21,30 @@ public class Task6Test {
     @Test
     @DisplayName("Wrong substring")
     void Test2() {
-        String S = "this is main string to find substring in";
-        String T = "kaboom!";
+        String T = "this is main string to find substring in";
+        String S = "kaboom!";
 
         boolean isSubstring = isSubstring(S, T);
         assertThat(isSubstring).isFalse();
+    }
+
+    @Test
+    @DisplayName("Right substring")
+    void Test3() {
+        String T = "this is main string to find substring in";
+        String S = "tmin";
+
+        boolean isSubstring = isSubstring(S, T);
+        assertThat(isSubstring).isTrue();
+    }
+
+    @Test
+    @DisplayName("Right substring")
+    void Test4() {
+        String T = "aghfbdkeoc";
+        String S = "abc";
+
+        boolean isSubstring = isSubstring(S, T);
+        assertThat(isSubstring).isTrue();
     }
 }

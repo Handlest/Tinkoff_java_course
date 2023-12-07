@@ -65,7 +65,7 @@ public class Task3Test {
 
         var dateParsed = parseDate(dateString);
 
-        assertThat(dateParsed).isEqualTo(Optional.of(LocalDate.of(2023, 11, 13)));
+        assertThat(dateParsed).isEqualTo(Optional.of(LocalDate.of(2023, 12, 9)));
     }
 
     @Test
@@ -75,7 +75,7 @@ public class Task3Test {
 
         var dateParsed = parseDate(dateString);
 
-        assertThat(dateParsed).isEqualTo(Optional.of(LocalDate.of(2023, 11, 12)));
+        assertThat(dateParsed).isEqualTo(Optional.of(LocalDate.of(2023, 12, 8)));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class Task3Test {
 
         var dateParsed = parseDate(dateString);
 
-        assertThat(dateParsed).isEqualTo(Optional.of(LocalDate.of(2023, 11, 11)));
+        assertThat(dateParsed).isEqualTo(Optional.of(LocalDate.of(2023, 12, 7)));
     }
 
     @Test
@@ -95,7 +95,7 @@ public class Task3Test {
 
         var dateParsed = parseDate(dateString);
 
-        assertThat(dateParsed).isEqualTo(Optional.of(LocalDate.of(2017, 9, 30)));
+        assertThat(dateParsed).isEqualTo(Optional.of(LocalDate.of(2017, 10, 26)));
     }
 
     @Test
@@ -105,7 +105,7 @@ public class Task3Test {
 
         var dateParsed = parseDate(dateString);
 
-        assertThat(dateParsed).isEqualTo(Optional.of(LocalDate.of(2023, 11, 11)));
+        assertThat(dateParsed).isEqualTo(Optional.of(LocalDate.of(2023, 12, 7)));
     }
 
     @Test

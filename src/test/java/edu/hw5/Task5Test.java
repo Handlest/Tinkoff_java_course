@@ -33,4 +33,16 @@ public class Task5Test {
         isValid = validateCarNumber(carNumber3);
         assertThat(isValid).isFalse();
     }
+
+    @Test
+    @DisplayName("Right numbers with two digit region")
+    void Test3() {
+        String carNumber1 = "А123ВЕ03";
+        String carNumber2 = "О777ОО99";
+
+        boolean isValid = validateCarNumber(carNumber1);
+        assertThat(isValid).isTrue();
+        isValid = validateCarNumber(carNumber2);
+        assertThat(isValid).isTrue();
+    }
 }

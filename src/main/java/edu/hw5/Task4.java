@@ -10,7 +10,7 @@ public class Task4 {
     }
 
     public static boolean validatePassword(String string) {
-        String regex = "(.+)?[~!@#$%^&*|](.+)?";
+        String regex = ".*[~!@#$%^&*|].*";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(string);
         return matcher.matches();

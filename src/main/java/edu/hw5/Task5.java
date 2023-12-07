@@ -10,7 +10,7 @@ public class Task5 {
     }
 
     public static boolean validateCarNumber(String string) {
-        String regex = "^[АВЕКМНОРСТУХ]\\d{3}[АВЕКМНОРСТУХ]{2}\\d{3}$";
+        String regex = "^[АВЕКМНОРСТУХ]\\d{3}[АВЕКМНОРСТУХ]{2}\\d{2,3}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(string);
         return matcher.matches();
